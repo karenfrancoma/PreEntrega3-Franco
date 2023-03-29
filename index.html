@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Your Tickets</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./css/style.css">
+    <script defer src="./js/script.js"></script>
+
+</head>
+
+<body>
+    <nav class="navbar bg-purple-500">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="/assets/img/logo-home1.png" alt="Logo" width="70" height="64"
+                    class="d-inline-block align-text-center" />
+                Your Tickets - Coldplay en concierto
+            </a>
+        </div>
+    </nav>
+
+    <table class="table, col-3 border">
+        <thead>
+            <tr>
+                <th scope="col">Locación</th>
+                <th scope="col">Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Norte</th>
+                <td>100</td>
+            </tr>
+            <tr>
+                <th scope="row">Oriental</th>
+                <td>200</td>
+            </tr>
+            <tr>
+                <th scope="row">Occidental</th>
+                <td>400</td>
+            </tr>
+            <tr>
+                <th scope="row">VIP</th>
+                <td>900</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <form class="row gy-2 gx-3 align-items-center">
+        <div class="col-auto">
+            <label class="visually-hidden" for="autoSizingInput">Nombre</label>
+            <input type="text" class="form-control"  id="nombreComprador" placeholder="Nombre">
+        </div>
+        <div class="col-auto">
+            <label class="visually-hidden" for="autoSizingInput">Apellido</label>
+            <input type="text" class="form-control" id="autoSizingInput" id="apellidoComprador" placeholder="Apellido">
+        </div>
+        <div class="col-auto">
+            <label class="visually-hidden" for="autoSizingSelect">Locación</label>
+            <select class="form-select" id="autoSizingSelect" id="locacionSeleccionada">
+                <option selected>Locación</option>
+                <option value="1">Norte</option>
+                <option value="2">Oriental</option>
+                <option value="3">Occidental</option>
+                <option value="4">VIP</option>
+            </select>
+        </div>
+        <div class="col-auto">
+            <label class="visually-hidden" for="autoSizingSelect">Cantidad</label>
+            <select class="form-select" id="autoSizingSelect" id="cantidadTicketsElegida">
+                <option selected>Cantidad</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary" id="btnContinuar" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Continuar</button>
+        </div>
+    </form>
+
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
