@@ -1,79 +1,193 @@
-//Variable para guardar datos de factura
-let factura = [];
-
-//ELEMENTOS DEL DOM
-
-    const inputNombre = document.getElementById("nombreComprador"),
-  inputApellido = document.getElementById("apellidoComprador"),
-  inputLocacion = document.getElementById("locacionSeleccionada"),
-  inputCantidadTickets = document.getElementById("cantidadTicketsElegida"),
-  btnContinuar = document.getElementById("btnContinuar"),
-  modal = document.getElementById('staticBackdrop');
-
-
-//CLASE CONSTRUCTORA
-class Ticket {
-  constructor(nombre, apellido, locacion, valor, cantidad) {
-    this.nombre = nombre;
-    this.apellido = apellido;
-    this.locacion = locacion;
-    this.valor = parseInt(valor);
-    this.cantidad = parseInt(cantidad);
+// objeto que almacena los productos y sus detalles
+const products = {
+  'product-1': {
+    name: 'Norte',
+    price: 100
+  },
+  'product-2': {
+    name: 'Oriental',
+    price: 200
+  },
+  'product-3': {
+    name: 'Occidental',
+    price: 400
+  },
+  'product-4': {
+    name: 'Platino',
+    price: 900
   }
-}
+};
+
+// función que se ejecuta cuando se envía el formulario
+document.getElementById('cartForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // prevenir el envío del formulario
 
 
+  
+  const items = []; // array para almacenar los productos seleccionados
+  
+  // iterar sobre los productos y sus cantidades
+  for (const [productId, productQuantity] of Object.entries(this.elements)) {
+    if (productId.startsWith('product-') && productQuantity.value > 0) {
+      const product = products[productId]; // obtener los detalles del producto
+      const quantity = parseInt(productQuantity.value); // convertir la cantidad a número
+      
+      // añadir el producto a la lista de items
+      items.push({
+        name: product.name,
+        price: product.price,
+        quantity: quantity
+      });
+    }
+  }
+  
+  // si se seleccionaron productos, mostrar la factura
+  if (items.length > 0) {
+    showInvoice(items);
+    saveInvoice(items);
+  }
+});
 
-function generarFactura(factura) {
-  const compra = new Ticket(
-    inputNombre.value,
-    inputApellido.value,
-    inputLocacion.value,
-    inputCantidadTickets.value,
-  );
-
-  factura.push(compra);
-}
-
-function guardarEnStorage(factura) {
-  localStorage.setItem("facturaCompra", JSON.stringify(factura));
-}
+// función que se ejecuta cuando se envía el formulario
+document.getElementById('cartForm1').addEventListener('submit', function(event) {
+  event.preventDefault(); // prevenir el envío del formulario
 
 
+  
+  const items = []; // array para almacenar los productos seleccionados
+  
+  // iterar sobre los productos y sus cantidades
+  for (const [productId, productQuantity] of Object.entries(this.elements)) {
+    if (productId.startsWith('product-') && productQuantity.value > 0) {
+      const product = products[productId]; // obtener los detalles del producto
+      const quantity = parseInt(productQuantity.value); // convertir la cantidad a número
+      
+      // añadir el producto a la lista de items
+      items.push({
+        name: product.name,
+        price: product.price,
+        quantity: quantity
+      });
+    }
+  }
+  
+  // si se seleccionaron productos, mostrar la factura
+  if (items.length > 0) {
+    showInvoice(items);
+    saveInvoice(items);
+  }
+});
 
-function createBill(contenedorHTML) {
-  contenedorHTML.innerHTML = ''; 
+// función que se ejecuta cuando se envía el formulario
+document.getElementById('cartForm2').addEventListener('submit', function(event) {
+  event.preventDefault(); // prevenir el envío del formulario
 
-        let divColTarjeta = document.createElement('div');
 
-       divColTarjeta.className = 'modal';
+  
+  const items = []; // array para almacenar los productos seleccionados
+  
+  // iterar sobre los productos y sus cantidades
+  for (const [productId, productQuantity] of Object.entries(this.elements)) {
+    if (productId.startsWith('product-') && productQuantity.value > 0) {
+      const product = products[productId]; // obtener los detalles del producto
+      const quantity = parseInt(productQuantity.value); // convertir la cantidad a número
+      
+      // añadir el producto a la lista de items
+      items.push({
+        name: product.name,
+        price: product.price,
+        quantity: quantity
+      });
+    }
+  }
+  
+  // si se seleccionaron productos, mostrar la factura
+  if (items.length > 0) {
+    showInvoice(items);
+    saveInvoice(items);
+  }
+});
 
-        divColTarjeta.innerHTML = `
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel">Your Bill</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <h6>Nombre</h6>
-              <p class='modal-text'>${inputNombre.value}</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Understood</button>
-            </div>
-          </div>
-        </div>
-      </div>`;
+// función que se ejecuta cuando se envía el formulario
+document.getElementById('cartForm3').addEventListener('submit', function(event) {
+  event.preventDefault(); // prevenir el envío del formulario
 
-        contenedorHTML.append(divColTarjeta);
+
+  
+  const items = []; // array para almacenar los productos seleccionados
+  
+  // iterar sobre los productos y sus cantidades
+  for (const [productId, productQuantity] of Object.entries(this.elements)) {
+    if (productId.startsWith('product-') && productQuantity.value > 0) {
+      const product = products[productId]; // obtener los detalles del producto
+      const quantity = parseInt(productQuantity.value); // convertir la cantidad a número
+      
+      // añadir el producto a la lista de items
+      items.push({
+        name: product.name,
+        price: product.price,
+        quantity: quantity
+      });
+    }
+  }
+  
+  // si se seleccionaron productos, mostrar la factura
+  if (items.length > 0) {
+    showInvoice(items);
+    saveInvoice(items);
+  }
+});
+
+// función que muestra la factura
+function showInvoice(items) {
+  const invoiceBody = document.getElementById('invoice-body');
+  const invoiceTotal = document.getElementById('invoice-total');
+  
+  // limpiar la factura anterior, si la hay
+  invoiceBody.innerHTML = '';
+  invoiceTotal.textContent = '';
+  
+  // iterar sobre los items y agregarlos a la factura
+  let total = 0;
+  for (const item of items) {
+    const itemTotal = item.price * item.quantity;
+    total += itemTotal;
     
+    // crear una fila para el item
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${item.name}</td>
+      <td>${item.quantity.toLocaleString()}</td>
+      <td>${item.price.toLocaleString()}</td>
+      <td>${itemTotal.toLocaleString()}</td>
+    `;
+    
+    invoiceBody.appendChild(row);
+  }
+  
+  // mostrar el total
+  invoiceTotal.textContent = total.toLocaleString();
+  
+  // mostrar la factura
+  document.getElementById('invoice').classList.remove('d-none');
 }
 
-btnContinuar.onclick = (e) => {
-    e.preventDefault();
-    createBill(modal);
-    console.log(inputNombre.value);
+// función que guarda la factura en Local Storage
+function saveInvoice(items) {
+  const invoice = {
+    items: items,
+  };
+  const invoices = getInvoices();
+  invoices.push(invoice);
+  localStorage.setItem('invoices', JSON.stringify(invoices));
+}
+
+// función que obtiene la lista de facturas guardadas en Local Storage
+function getInvoices() {
+  const invoicesJSON = localStorage.getItem('invoices');
+  if (invoicesJSON) {
+    return JSON.parse(invoicesJSON);
+  } else {
+    return [];
+  }
 }
